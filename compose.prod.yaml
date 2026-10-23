@@ -1,0 +1,7 @@
+# Add this file when deploying to VPS with real DNS records and HTTPS.
+services:
+  web:
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"

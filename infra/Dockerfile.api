@@ -1,0 +1,13 @@
+FROM rust:1-bookworm AS builder
+WORKDIR /build
+COPY server/Cargo.toml ./Cargo.toml
+COPY server/src ./src
+RUN cargo build --release
+
+FROM debian:bookworm-slim
+RUN groupadd -g 10001 app && useradd -g app -u 10001 -M -s /usr/sbin/nologin app
+COPY --from=builder /build/target/release/teampix-api /usr/local/bin/teampix-api
+USER app
+ENV BIND_ADDR=0.0.0.0:3000
+EXPOSE 3000
+CMD ["/usr/local/bin/teampix-api"]

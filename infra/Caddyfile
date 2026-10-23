@@ -1,0 +1,21 @@
+# Local: http://localhost:8080 and http://localhost:8081
+# VPS: set SITE_PORTAL=example.com and SITE_TEAMPIX=teampix.example.com
+{$SITE_PORTAL} {
+    root * /srv/portal
+    encode zstd gzip
+    file_server
+}
+
+{$SITE_TEAMPIX} {
+    @backend path /api/* /ws/*
+    handle @backend {
+        reverse_proxy api:3000
+    }
+
+    handle {
+        root * /srv/teampix
+        encode zstd gzip
+        try_files {path} /index.html
+        file_server
+    }
+}

@@ -1,0 +1,11 @@
+{
+  "name": "teampix-platform",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": ["apps/teampix"],
+  "scripts": {
+    "dev:teampix": "npm run dev --workspace @teampix/editor",
+    "build:teampix": "npm run build --workspace @teampix/editor",
+    "typecheck": "npm run typecheck --workspace @teampix/editor"
+  }
+}

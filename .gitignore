@@ -1,0 +1,22 @@
+# Local secrets and environments
+.env
+.env.*
+!.env.example
+
+# JavaScript
+node_modules/
+dist/
+*.tsbuildinfo
+
+# Rust
+server/target/
+
+# Runtime state (to be introduced later)
+data/
+
+# Local/editor artifacts
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+local/

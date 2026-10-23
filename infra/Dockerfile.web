@@ -1,0 +1,13 @@
+FROM node:22-alpine AS frontend
+WORKDIR /workspace
+COPY package*.json ./
+COPY apps/teampix/package.json apps/teampix/package.json
+# Prefer reproducible installs after npm install generates a root package-lock.json.
+RUN if [ -f package-lock.json ]; then npm ci --no-audit --no-fund; else npm install --no-audit --no-fund; fi
+COPY apps/teampix apps/teampix
+RUN npm run build:teampix
+
+FROM caddy:2-alpine
+COPY infra/Caddyfile /etc/caddy/Caddyfile
+COPY apps/portal /srv/portal
+COPY --from=frontend /workspace/apps/teampix/dist /srv/teampix
