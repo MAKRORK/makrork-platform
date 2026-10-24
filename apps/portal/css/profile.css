@@ -1,0 +1,119 @@
+body:is([data-page="about"], [data-page="contact"]) .site-footer {
+  background: transparent;
+  pointer-events: none;
+}
+
+/* Both illustration and content are attached to the viewport, never to a text scroller. */
+.profile-page {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+.profile-art {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: 48%;
+  pointer-events: none;
+}
+
+.profile-art .hero-scene {
+  overflow: visible;
+}
+
+.profile-content {
+  position: fixed;
+  top: calc(var(--header-height) + 16px);
+  left: 52%;
+  right: 24px;
+  bottom: auto;
+  padding: 0;
+  overflow: visible;
+  font-size: var(--profile-font-size, clamp(14px, 1.25vw, 24px));
+}
+
+.about-copy {
+  margin: 0;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+  font-size: inherit;
+  line-height: 1.4;
+}
+
+.accent {
+  color: var(--color-accent);
+}
+
+.profile-contact .profile-content {
+  left: 59.4%;
+}
+
+.contact-links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  min-height: 2.7em;
+  padding: .3em 0;
+  width: fit-content;
+  max-width: 100%;
+  background: none;
+}
+
+.contact-link:focus-visible {
+  background: none;
+}
+
+
+
+.contact-icon {
+  display: block;
+  width: 2em;
+  height: 2em;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.contact-label {
+  font-size: inherit;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+
+@media (max-width: 760px) {
+  .profile-art {
+    width: 100%;
+  }
+
+  .profile-content,
+  .profile-contact .profile-content {
+    left: 12px;
+    right: 12px;
+    font-size: var(--profile-font-size, 16px);
+  }
+
+  .contact-link {
+    gap: .75em;
+  }
+
+  .contact-icon {
+    width: 1.75em;
+    height: 1.75em;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+.contact-link:hover .contact-label {
+  text-decoration: underline;
+  text-underline-offset: .22em;
+  text-decoration-thickness: 1px;
+}
+}
+@media (hover: none), (pointer: coarse) {
+  .contact-link { min-height: 44px; }
+  .contact-link:active .contact-label { text-decoration: underline; text-underline-offset: .22em; }
+}

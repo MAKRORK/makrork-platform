@@ -1,11 +1,16 @@
 {
-  "name": "teampix-platform",
+  "name": "makrork-platform",
   "private": true,
   "version": "0.1.0",
-  "workspaces": ["apps/teampix"],
+  "workspaces": [
+    "apps/teampix",
+    "apps/pong"
+  ],
   "scripts": {
     "dev:teampix": "npm run dev --workspace @teampix/editor",
     "build:teampix": "npm run build --workspace @teampix/editor",
+    "dev:pong": "npm run dev --workspace @makrork/pong",
+    "build:pong": "npm run build --workspace @makrork/pong",
     "typecheck": "npm run typecheck --workspace @teampix/editor"
   }
 }

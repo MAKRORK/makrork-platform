@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="theme-color" content="#1a0033">
+	<meta name="description" content="MAKRORK — games, apps and tools.">
+	<title>Explore — MAKRORK</title>
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+	<link rel="preload" href="/assets/fonts/RedHatMono.ttf" as="font" type="font/ttf" crossorigin>
+	<link rel="stylesheet" href="/css/styles.css">
+	<script src="/js/config-fallback.js" defer></script>
+	<script src="/js/dom.js" defer></script>
+	<script src="/js/config.js" defer></script>
+	<script src="/js/navigation.js" defer></script>
+	<script src="/js/projects.js" defer></script>
+	<script src="/js/hero.js" defer></script>
+	<script src="/js/main.js" defer></script>
+</head>
+
+<body data-page="explore"><a class="skip-link" href="#main">Skip to content</a>
+	<header class="site-header">
+		<nav class="site-nav" aria-label="Main navigation">
+			<ul class="nav-list" id="nav-list"></ul>
+		</nav>
+	</header>
+	<main id="main" class="explore-page" tabindex="-1" aria-label="Explore projects">
+		<div class="explore-content">
+			<h1 class="sr-only">Explore projects</h1>
+			<div class="project-grid" id="project-grid"></div>
+			<p class="empty-state" id="empty-state" hidden>No projects here yet.</p>
+		</div>
+	</main>
+	<footer class="site-footer" aria-label="Social links">
+		<div id="social-links" class="social-links"></div>
+	</footer>
+	<p id="load-error" class="load-error" role="alert" hidden></p><noscript>
+		<p class="noscript">Please enable JavaScript to load the menu and project list. <a href="/">Home</a> ·
+			<a href="/explore/">Explore</a> · <a href="/about/">About</a> · <a href="/contact/">Contact</a>
+		</p>
+	</noscript>
+</body>
+
+</html>
